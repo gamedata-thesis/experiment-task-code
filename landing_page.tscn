@@ -1,0 +1,439 @@
+[gd_scene load_steps=8 format=3 uid="uid://mnnh11n4u81u"]
+
+[ext_resource type="Script" path="res://landing_page.gd" id="1_ycptm"]
+[ext_resource type="Theme" uid="uid://ca2abt5lcmik" path="res://optionBtnTheme.tres" id="2_xm4ek"]
+
+[sub_resource type="Gradient" id="Gradient_no1t7"]
+offsets = PackedFloat32Array(0, 0.730051, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0.180005, 0.180005, 0.180005, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6irtr"]
+gradient = SubResource("Gradient_no1t7")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8rxf"]
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2nu6"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a21t"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ycptm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6irtr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -593.0
+offset_top = -369.5
+offset_right = 593.0
+offset_bottom = 369.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u8rxf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Player Name: "
+
+[node name="PlayerNameLineEdit" type="LineEdit" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Type name here..."
+
+[node name="PlayerIdLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Player ID:"
+
+[node name="PlayerIdLineEdit" type="LineEdit" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+placeholder_text = "P001"
+
+[node name="HSeparator5" type="HSeparator" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+
+[node name="GameEffectsLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Visual Feedback"
+
+[node name="Control8" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="FlashSizeLabel2" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Feedback Method:"
+
+[node name="FeedbackTypeOptionButton" type="OptionButton" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_xm4ek")
+theme_override_font_sizes/font_size = 30
+item_count = 3
+selected = 0
+popup/item_0/text = "Control"
+popup/item_0/id = 0
+popup/item_1/text = "Border Flash"
+popup/item_1/id = 1
+popup/item_2/text = "Expanding Ring"
+popup/item_2/id = 2
+
+[node name="HSeparator6" type="HSeparator" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+
+[node name="GameEffectsDetailsLabel2" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Feedback details"
+
+[node name="Control7" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="FlashSizeLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Border Flash Size:"
+
+[node name="FlashSizeOptionButton" type="OptionButton" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_xm4ek")
+theme_override_font_sizes/font_size = 30
+item_count = 6
+selected = 1
+popup/item_0/text = "1/7"
+popup/item_0/id = 0
+popup/item_1/text = "1/8"
+popup/item_1/id = 1
+popup/item_2/text = "1/6"
+popup/item_2/id = 2
+popup/item_3/text = "1/4"
+popup/item_3/id = 3
+popup/item_4/text = "1/2"
+popup/item_4/id = 4
+popup/item_5/text = "No flash"
+popup/item_5/id = 5
+
+[node name="ClickRingLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Expanding Ring Radius:"
+
+[node name="ClickRingOptionButton" type="OptionButton" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_xm4ek")
+theme_override_font_sizes/font_size = 30
+item_count = 6
+selected = 2
+popup/item_0/text = "100"
+popup/item_0/id = 0
+popup/item_1/text = "150"
+popup/item_1/id = 1
+popup/item_2/text = "200"
+popup/item_2/id = 2
+popup/item_3/text = "250"
+popup/item_3/id = 3
+popup/item_4/text = "300"
+popup/item_4/id = 4
+popup/item_5/text = "Effect Off"
+popup/item_5/id = 5
+
+[node name="ShowScoreLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Show Score:"
+
+[node name="ShowScoreOptionButton" type="OptionButton" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_xm4ek")
+theme_override_font_sizes/font_size = 30
+item_count = 2
+selected = 0
+popup/item_0/text = "Off"
+popup/item_0/id = 0
+popup/item_1/text = "On"
+popup/item_1/id = 1
+
+[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 2.08165e-12)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="ObjectCountLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Objects Per Round: 10
+"
+
+[node name="ObjectCountSlider" type="HSlider" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+min_value = 1.0
+value = 4.0
+tick_count = 11
+ticks_on_borders = true
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="RoundCountLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Amount of Rounds: 1"
+
+[node name="RoundCountSlider" type="HSlider" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+min_value = 1.0
+max_value = 50.0
+value = 1.0
+tick_count = 6
+ticks_on_borders = true
+
+[node name="Control3" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="SpawnIntervalLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Time Between Objects: 3.5 sec
+"
+
+[node name="SpawnIntervalSlider" type="HSlider" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 5.0
+step = 0.5
+value = 3.5
+tick_count = 9
+ticks_on_borders = true
+
+[node name="HSeparator3" type="HSeparator" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="ObjectTimeVisibleLabel" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Visible Time per Object: 2.5 sec
+"
+
+[node name="ObjectTimeVisibleSlider" type="HSlider" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 3.0
+step = 0.5
+value = 2.5
+tick_count = 5
+ticks_on_borders = true
+
+[node name="HSeparator4" type="HSeparator" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 65
+text = "   Select Game Mode   "
+
+[node name="HSeparator2" type="HSeparator" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="TrainingAreaButton" type="Button" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_p2nu6")
+text = "        Training Area       "
+
+[node name="Control7" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SaveContinueButton" type="Button" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_p2nu6")
+text = "            Go-Only            "
+
+[node name="GoOnlyObjectAmountOptionButton" type="OptionButton" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_xm4ek")
+theme_override_font_sizes/font_size = 30
+item_count = 5
+selected = 1
+popup/item_0/text = "6"
+popup/item_0/id = 0
+popup/item_1/text = "12"
+popup/item_1/id = 1
+popup/item_2/text = "18"
+popup/item_2/id = 2
+popup/item_3/text = "24"
+popup/item_3/id = 3
+popup/item_4/text = "30"
+popup/item_4/id = 4
+
+[node name="Control6" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SaveContinueButton2" type="Button" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_p2nu6")
+text = "            Go-NoGo          "
+
+[node name="GoNoGoObjectAmountOptionButton" type="OptionButton" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_xm4ek")
+theme_override_font_sizes/font_size = 30
+item_count = 5
+selected = 3
+popup/item_0/text = "6"
+popup/item_0/id = 0
+popup/item_1/text = "12"
+popup/item_1/id = 1
+popup/item_2/text = "18"
+popup/item_2/id = 2
+popup/item_3/text = "24"
+popup/item_3/id = 3
+popup/item_4/text = "30"
+popup/item_4/id = 4
+
+[node name="Control5" type="Control" parent="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 15)
+layout_mode = 2
+
+[node name="ExitGameButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -127.0
+offset_right = 379.0
+offset_bottom = -50.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_2a21t")
+text = "Exit Game"
+
+[connection signal="item_selected" from="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2/FeedbackTypeOptionButton" to="." method="_on_feedback_type_option_button_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2/FlashSizeOptionButton" to="." method="_on_flash_size_option_button_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2/ClickRingOptionButton" to="." method="_on_click_ring_option_button_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer2/ShowScoreOptionButton" to="." method="_on_show_score_option_button_item_selected"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/TrainingAreaButton" to="." method="_on_training_area_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/SaveContinueButton" to="." method="_on_save_continue_button_pressed"]
+[connection signal="item_selected" from="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/GoOnlyObjectAmountOptionButton" to="." method="_on_go_only_object_amount_option_button_item_selected"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/SaveContinueButton2" to="." method="_on_save_continue_button_2_pressed"]
+[connection signal="item_selected" from="CanvasLayer/PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer2/GoNoGoObjectAmountOptionButton" to="." method="_on_go_no_go_object_amount_option_button_item_selected"]
+[connection signal="pressed" from="CanvasLayer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]

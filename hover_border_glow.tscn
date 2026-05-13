@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://wn8bubjqisac"]
+
+[ext_resource type="Script" path="res://hover_border_glow.gd" id="1_utyrn"]
+
+[sub_resource type="Gradient" id="Gradient_cdrlp"]
+colors = PackedColorArray(0.00784314, 0.541176, 0.0588235, 0.670588, 0.00784314, 0.541176, 0.0588235, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4rwsu"]
+gradient = SubResource("Gradient_cdrlp")
+
+[sub_resource type="Gradient" id="Gradient_or26c"]
+colors = PackedColorArray(0.00784314, 0.541176, 0.0588235, 0.670588, 0.00784314, 0.541176, 0.0588235, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h0tew"]
+gradient = SubResource("Gradient_or26c")
+height = 200
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Gradient" id="Gradient_6hpti"]
+colors = PackedColorArray(0.00784314, 0.541176, 0.0588235, 0.670588, 0.00784314, 0.541176, 0.0588235, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_njmwr"]
+gradient = SubResource("Gradient_6hpti")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_qrlyr"]
+colors = PackedColorArray(0.00784314, 0.541176, 0.0588235, 0.666667, 0.00784314, 0.541176, 0.0588235, 0)
+metadata/_snap_enabled = true
+metadata/_snap_count = 5
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s8ccy"]
+gradient = SubResource("Gradient_qrlyr")
+height = 200
+fill_from = Vector2(1, 1)
+
+[node name="hover_border_glow" type="CanvasLayer"]
+script = ExtResource("1_utyrn")
+
+[node name="LeftTextureRect" type="TextureRect" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 200.0
+grow_vertical = 2
+size_flags_stretch_ratio = 7.52
+texture = SubResource("GradientTexture2D_4rwsu")
+
+[node name="TopTextureRect" type="TextureRect" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_h0tew")
+
+[node name="RightTextureRect" type="TextureRect" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_njmwr")
+
+[node name="BottomTextureRect" type="TextureRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_s8ccy")

@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://02fp02fjjai"]
+
+[ext_resource type="Script" path="res://grid_preview_scene.gd" id="1_uuljh"]
+
+[sub_resource type="Gradient" id="Gradient_1dqil"]
+offsets = PackedFloat32Array(0, 0.730051, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0.180005, 0.180005, 0.180005, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gsxq4"]
+gradient = SubResource("Gradient_1dqil")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp423"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="GridPreviewScene" type="Node2D"]
+script = ExtResource("1_uuljh")
+
+[node name="GridNode" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="MainUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MainUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gsxq4")
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuButton" type="Button" parent="CanvasLayer/MainUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -399.0
+offset_top = 70.0
+offset_right = -70.0
+offset_bottom = 170.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_cp423")
+text = "Return menu"
+
+[connection signal="pressed" from="CanvasLayer/MainUI/MenuButton" to="." method="_on_menu_button_pressed"]

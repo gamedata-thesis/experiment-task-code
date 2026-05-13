@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bed0kw71a8wc8"]
+
+[ext_resource type="Script" path="res://hover_ring.gd" id="1_slae0"]
+
+[node name="hover_ring" type="Node2D"]
+script = ExtResource("1_slae0")

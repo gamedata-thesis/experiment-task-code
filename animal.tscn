@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://j4maavk0l3yk"]
+
+[ext_resource type="Script" path="res://animal.gd" id="1_hlc33"]
+[ext_resource type="Texture2D" uid="uid://ha1uket8mqte" path="res://objects/electric_blue_diamond.png" id="1_lvvqj"]
+
+[node name="Animal" type="Sprite2D"]
+position = Vector2(892, 421)
+texture = ExtResource("1_lvvqj")
+script = ExtResource("1_hlc33")
